@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <ImageView
+            android:id="@+id/bg1"
+            android:layout_width="match_parent"
+            android:layout_height="105dp"
+            android:src="@drawable/background"
+            android:scaleType="centerCrop"/>
+    <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bg"
+            android:layout_marginTop="-110dp"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ava3"
+                android:src="@mipmap/icon"
+                android:layout_gravity="center"
+                android:layout_width="75dp"
+                android:layout_height="75dp"/>
+
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_marginTop="20dp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:text="Name"
+                    android:textSize="12sp"
+                    android:layout_marginStart="3dp"
+                    android:textColor="#000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <EditText
+                    android:id="@+id/etp_nama1"
+                    android:text="Farhan Agung Maulana"
+                    android:textColor="#000"
+
+                    android:textSize="12sp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+            />
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:text="Alamat"
+                    android:textSize="12sp"
+                    android:textColor="#000"
+                    android:layout_marginStart="3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <EditText
+                    android:id="@+id/etp_alamat1"
+                    android:text="Jl. Balikpapan"
+                    android:textSize="12sp"
+                    android:textColor="#000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+            />
+        </LinearLayout>
+
+        <LinearLayout
+                android:orientation="vertical"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                    android:text="No Telp."
+                    android:textSize="12sp"
+                    android:textColor="#000"
+                    android:layout_marginStart="3dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <EditText
+                    android:id="@+id/etp_nomor1"
+                    android:text="081364521654"
+                    android:textSize="12sp"
+                    android:inputType="number"
+                    android:textColor="#000"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <Button
+                android:id="@+id/tes2"
+                android:layout_width="294dp"
+                android:layout_height="wrap_content"
+                android:text="save"
+                android:layout_gravity="center"
+                android:background="@drawable/lengkung3"
+                android:layout_margin="25dp"
+                android:textColor="#ffff"
+        />
+    </LinearLayout>
+
+</LinearLayout>

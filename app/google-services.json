@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "988086244761",
+    "firebase_url": "https://tugasakhir-1e056.firebaseio.com",
+    "project_id": "tugasakhir-1e056",
+    "storage_bucket": "tugasakhir-1e056.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:988086244761:android:036e908af57b8dec02ef08",
+        "android_client_info": {
+          "package_name": "com.example.FiMaid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "988086244761-ilul3bk2lmf865l6dki6hl4p2ibbe5h4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.FiMaid",
+            "certificate_hash": "52019e0f8cec9db708895dc419e6213a819548d8"
+          }
+        },
+        {
+          "client_id": "988086244761-99hk8g1g9uo36f8jn921d5m366bgfl0h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzXI7bcIp2QJwudL-F4-YW29SfJ_13SeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "988086244761-99hk8g1g9uo36f8jn921d5m366bgfl0h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

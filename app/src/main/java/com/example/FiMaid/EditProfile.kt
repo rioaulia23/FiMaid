@@ -105,6 +105,29 @@ class EditProfile : AppCompatActivity() {
                 }
             }
         }
+        ava3.setOnClickListener {
+            when {
+                (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) -> {
+                    if (ContextCompat.checkSelfPermission(
+                            this,
+                            Manifest.permission.READ_EXTERNAL_STORAGE
+                        )
+                        != PackageManager.PERMISSION_GRANTED
+                    ) {
+                        requestPermissions(
+                            arrayOf(
+                                Manifest.permission.READ_EXTERNAL_STORAGE
+                            ), PERMISSION_RC
+                        )
+                    } else {
+                        imageChooser()
+                    }
+                }
+                else -> {
+                    imageChooser()
+                }
+            }
+        }
 
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("name").addListenerForSingleValueEvent(object : ValueEventListener {

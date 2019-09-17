@@ -159,27 +159,52 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="Usia"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+
+            <EditText
+                    android:id="@+id/etp_usia1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:inputType="number"
+                    android:text="081364521654"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:padding="20dp"
                 android:layout_above="@+id/etp_nomor"
 
-                android:orientation="horizontal"
-        >
+                android:orientation="horizontal">
+
             <Button
                     android:id="@+id/tes1"
                     android:layout_width="294dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:text="edit"
                     android:layout_weight="1"
                     android:layout_gravity="center"
                     android:background="@drawable/lengkung3"
                     android:layout_margin="25dp"
 
-                    android:textColor="#ffff"
-            />
+                    android:textColor="#ffff" />
+
             <Button
                     android:id="@+id/tes"
                     android:layout_width="294dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="30dp"
                     android:text="logout"
                     android:layout_weight="1"
                     android:layout_margin="25dp"
@@ -187,8 +212,7 @@
                     android:background="@drawable/lengkung2"
                     android:layout_marginTop="25dp"
                     android:layout_marginBottom="20dp"
-                    android:textColor="#ffff"
-            />
+                    android:textColor="#ffff" />
         </LinearLayout>
     </LinearLayout>
 

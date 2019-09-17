@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#d9cdcc"
-        android:gravity="center_horizontal"
         android:orientation="vertical">
 
     <ImageView
-            android:id="@+id/bg"
+            android:id="@+id/bg1"
             android:layout_width="match_parent"
-            android:layout_height="90dp"
+            android:layout_height="105dp"
             android:scaleType="centerCrop"
             android:src="@drawable/background" />
 
     <LinearLayout
-            android:id="@+id/lldata"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/bg"
@@ -24,11 +22,11 @@
             android:padding="20dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/ava"
+                android:id="@+id/avamaid2"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:layout_gravity="center"
-                android:src="@drawable/logo" />
+                android:src="@mipmap/icon" />
 
 
         <LinearLayout
@@ -46,64 +44,16 @@
                     android:textColor="#000"
                     android:textSize="12sp" />
 
-            <TextView
-                    android:id="@+id/etp_nama"
+            <EditText
+                    android:id="@+id/etp_nama1_maid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+
                     android:text="Farhan Agung Maulana"
                     android:textColor="#000"
                     android:textSize="12sp" />
         </LinearLayout>
 
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="3dp"
-                    android:text="Deskripsi Diri"
-                    android:textColor="#000"
-                    android:textSize="12sp" />
-
-            <TextView
-                    android:id="@+id/etp_desc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="saya orang nya suka memasak dan saya orang nya gampang jatuh cinta tapi sama orang yang ganteng,saya orang yang sabar dalam menghadapi orang lain"
-                    android:textColor="#000"
-                    android:textSize="12sp"
-                    app:passwordToggleEnabled="true" />
-        </LinearLayout>
-
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="3dp"
-                    android:text="Email"
-                    android:textColor="#000"
-                    android:textSize="12sp" />
-
-            <TextView
-                    android:id="@+id/etp_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="famagung@gmail.com"
-                    android:textColor="#000"
-                    android:textSize="12sp" />
-        </LinearLayout>
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -119,11 +69,10 @@
                     android:textColor="#000"
                     android:textSize="12sp" />
 
-            <TextView
-                    android:id="@+id/etp_alamat"
+            <EditText
+                    android:id="@+id/etp_alamat1_maid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:text="Jl. Balikpapan"
                     android:textColor="#000"
                     android:textSize="12sp" />
@@ -143,16 +92,14 @@
                     android:textColor="#000"
                     android:textSize="12sp" />
 
-            <TextView
-                    android:id="@+id/etp_nomor"
+            <EditText
+                    android:id="@+id/etp_nomor1_maid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:inputType="number"
                     android:text="081364521654"
                     android:textColor="#000"
                     android:textSize="12sp" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -165,20 +112,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
-                    android:text="Usia."
+                    android:text="Usia"
                     android:textColor="#000"
                     android:textSize="12sp" />
 
-            <TextView
-                    android:id="@+id/etp_age"
+            <EditText
+                    android:id="@+id/etp_age1_maid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
                     android:inputType="number"
                     android:text="18"
                     android:textColor="#000"
                     android:textSize="12sp" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -191,22 +136,29 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
-                    android:text="Status"
+                    android:text="Deskripsi Diri."
                     android:textColor="#000"
                     android:textSize="12sp" />
 
-            <TextView
-                    android:id="@+id/etp_status"
+            <EditText
+                    android:id="@+id/etp_desc1_maid"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:inputType="number"
-                    android:text="Bekerja"
+                    android:inputType="textMultiLine"
+                    android:text="saya orang nya suka memasak dan saya orang nya gampang jatuh cinta tapi sama orang yang ganteng,saya orang yang sabar dalam menghadapi orang lain"
                     android:textColor="#000"
                     android:textSize="12sp" />
-
         </LinearLayout>
 
+        <Button
+                android:id="@+id/btnsave"
+                android:layout_width="294dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="25dp"
+                android:background="@drawable/lengkung3"
+                android:text="save"
+                android:textColor="#ffff" />
     </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

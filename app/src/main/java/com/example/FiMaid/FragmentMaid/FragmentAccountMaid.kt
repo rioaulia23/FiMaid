@@ -1,4 +1,4 @@
-package com.example.FiMaid.Fragment
+package com.example.FiMaid.FragmentMaid
 
 import android.content.Intent
 import android.net.Uri
@@ -15,14 +15,14 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.profile.*
+import kotlinx.android.synthetic.main.profilemaid.*
 
-class FragmentAccount : Fragment() {
+class FragmentAccountMaid : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.profile, container, false)
+        return inflater.inflate(R.layout.profilemaid, container, false)
     }
 
     lateinit var fAuth: FirebaseAuth
@@ -41,7 +41,7 @@ class FragmentAccount : Fragment() {
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("alamat").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
-                    etp_alamat.setText(p0.value.toString())
+                    etp_alamat_maid.setText(p0.value.toString())
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -50,7 +50,7 @@ class FragmentAccount : Fragment() {
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("phone").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
-                    etp_nomor.setText(p0.value.toString())
+                    etp_nomor_maid.setText(p0.value.toString())
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -59,7 +59,7 @@ class FragmentAccount : Fragment() {
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("name").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
-                    etp_nama.setText(p0.value.toString())
+                    etp_nama_maid.setText(p0.value.toString())
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -68,7 +68,7 @@ class FragmentAccount : Fragment() {
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("email").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
-                    etp_email.setText(p0.value.toString())
+                    etp_email_maid.setText(p0.value.toString())
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -77,7 +77,7 @@ class FragmentAccount : Fragment() {
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("age").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
-                    etp_usia1.setText(p0.value.toString())
+                    etp_usia1_maid.setText(p0.value.toString())
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -86,7 +86,7 @@ class FragmentAccount : Fragment() {
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("password").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
-                    etp_password.setText(p0.value.toString())
+                    etp_password_maid.setText(p0.value.toString())
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -98,7 +98,7 @@ class FragmentAccount : Fragment() {
                     Glide.with(context!!).load(p0.value.toString())
                         .centerCrop()
                         .error(R.drawable.ic_launcher_background)
-                        .into(ava)
+                        .into(avamaid)
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -106,15 +106,15 @@ class FragmentAccount : Fragment() {
             })
 
         fAuth = FirebaseAuth.getInstance()
-        tes.setOnClickListener {
+        logoutmaid.setOnClickListener {
             fAuth.signOut()
             val intent = Intent(context, Login::class.java)
             startActivity(intent)
             activity!!.finish()
         }
-        tes1.setOnClickListener {
+        editmaid.setOnClickListener {
 
-            val intent = Intent(context, EditProfile::class.java)
+            val intent = Intent(context, EditProfileMaid::class.java)
             startActivity(intent)
 
         }

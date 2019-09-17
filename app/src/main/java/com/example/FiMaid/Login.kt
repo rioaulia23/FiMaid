@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.FiMaid.Fragment.AllFragment
+import com.example.FiMaid.FragmentMaid.AllFragment_Maid
 import com.example.FiMaid.Helper.PrefHelper
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
@@ -14,6 +16,10 @@ import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.login.*
 
 class Login : AppCompatActivity() {
@@ -50,23 +56,91 @@ class Login : AppCompatActivity() {
             ) {
                 fAuth.signInWithEmailAndPassword(email, pass)
                     .addOnSuccessListener {
-                        startActivity(Intent(this, AllFragment::class.java))
-                    }
-                    .addOnFailureListener {
+                        FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
+                            .child("id").addListenerForSingleValueEvent(object :
+                                ValueEventListener {
+                                override fun onCancelled(p0: DatabaseError) {
+                                }
+
+                                override fun onDataChange(p0: DataSnapshot) {
+                                    val id = p0.value.toString()
+                                    FirebaseDatabase.getInstance().getReference("user/${id}")
+                                        .child("role").addListenerForSingleValueEvent(object :
+                                            ValueEventListener {
+                                            override fun onDataChange(p0: DataSnapshot) {
+                                                val role = p0.value.toString()
+                                                if (role == "boss") {
+                                                    FirebaseDatabase.getInstance()
+                                                        .getReference("user/${id}")
+                                                        .child("name")
+                                                        .addListenerForSingleValueEvent(object :
+                                                            ValueEventListener {
+                                                            override fun onCancelled(p0: DatabaseError) {
+                                                            }
+
+                                                            override fun onDataChange(p0: DataSnapshot) {
+                                                                val user = fAuth.currentUser
+                                                                updateUI(user)
+                                                                Toast.makeText(
+                                                                    applicationContext,
+                                                                    "Welcome ${p0.value.toString()}!",
+                                                                    Toast.LENGTH_SHORT
+                                                                ).show()
+                                                            }
+                                                        })
+                                                } else if (role == "maid") {
+                                                    FirebaseDatabase.getInstance()
+                                                        .getReference("user/${id}")
+                                                        .child("name")
+                                                        .addListenerForSingleValueEvent(object :
+                                                            ValueEventListener {
+                                                            override fun onCancelled(p0: DatabaseError) {
+
+                                                            }
+
+                                                            override fun onDataChange(p0: DataSnapshot) {
+                                                                val user = fAuth.currentUser
+                                                                updateUII(user)
+                                                                Toast.makeText(
+                                                                    applicationContext,
+                                                                    "Welcome ${p0.value.toString()}!",
+                                                                    Toast.LENGTH_SHORT
+                                                                ).show()
+                                                            }
+                                                        })
+                                                } else {
+                                                    Toast.makeText(
+                                                        applicationContext,
+                                                        "Username atau Password salah!",
+                                                        Toast.LENGTH_SHORT
+                                                    ).show()
+                                                }
+                                            }
+
+                                            override fun onCancelled(p0: DatabaseError) {
+
+                                            }
+                                        })
+
+                                }
+                            })
+                    }.addOnFailureListener {
                         Toast.makeText(
-                            this, "Login Failed",
+                            this,
+                            "Username atau Password salah!",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
             } else {
                 Toast.makeText(
-                    this, "Login Failed",
+                    this,
+                    "LOGIN GAGAL",
                     Toast.LENGTH_SHORT
                 ).show()
             }
         }
-
     }
+
 
     private fun signIN() {
         val signInIntent = mGoogleSignIn.signInIntent
@@ -104,6 +178,16 @@ class Login : AppCompatActivity() {
         }
     }
 
+    private fun updateUII(user: FirebaseUser?) {
+        if (user != null) {
+            Toast.makeText(
+                this, "Welcome",
+                Toast.LENGTH_SHORT
+            ).show()
+            startActivity(Intent(this, AllFragment_Maid::class.java))
+        }
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RC_SIGN_IN) {
@@ -124,4 +208,5 @@ class Login : AppCompatActivity() {
             updateUI(user)
 
     }
+
 }

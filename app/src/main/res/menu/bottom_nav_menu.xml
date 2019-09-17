@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/home"
-          android:icon="@drawable/group"
+            android:icon="@drawable/ic_maid"
           android:title="find"/>
 
     <item android:id="@+id/calender"
-          android:icon="@drawable/group"
+            android:icon="@drawable/list"
           android:title="requested"/>
 
 

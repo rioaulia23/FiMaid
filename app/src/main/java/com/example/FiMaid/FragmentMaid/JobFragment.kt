@@ -1,4 +1,4 @@
-package com.example.FiMaid.Fragment
+package com.example.FiMaid.FragmentMaid
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.FiMaid.R
 
-class FragmentHistory : Fragment() {
+class JobFragment : Fragment() {
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.home, container, false)
+        return inflater.inflate(R.layout.profilemaid, container, false)
     }
 }

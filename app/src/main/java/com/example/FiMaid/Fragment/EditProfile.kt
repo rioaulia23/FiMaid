@@ -1,4 +1,4 @@
-package com.example.FiMaid
+package com.example.FiMaid.Fragment
 
 import android.Manifest
 import android.app.Activity
@@ -16,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.FiMaid.Helper.PrefHelper
+import com.example.FiMaid.R
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/container"
@@ -9,54 +8,53 @@
         tools:context=".Fragment.AllFragment">
 
     <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/toolbar1"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
 
         <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/ava2"
-                android:src="@drawable/logo"
-
+                android:id="@+id/avamaid1"
                 android:layout_width="30dp"
-                android:layout_height="30dp"/>
+
+                android:layout_height="30dp"
+                android:src="@drawable/logo" />
 
         <TextView
-                android:id="@+id/tv_nama"
+                android:id="@+id/tv_nama_maid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Farhan Agung Maulana"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                android:textColor="#000"
                 android:layout_marginStart="40dp"
-        />
+                android:text="Farhan Agung Maulana"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
+            android:id="@+id/content1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:id="@+id/content"
-            android:layout_below="@+id/toolbar"
-            android:layout_above="@+id/nav_view">
+            android:layout_above="@+id/nav_view_maid"
+            android:layout_below="@+id/toolbar1"
+            android:orientation="vertical">
 
 
     </LinearLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/nav_view"
+            android:id="@+id/nav_view_maid"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_marginEnd="0dp"
-            android:layout_marginStart="0dp"
-            android:background="?android:attr/windowBackground"
             android:layout_alignParentBottom="true"
-            app:menu="@menu/bottom_nav_menu"/>
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="?android:attr/windowBackground"
+            app:menu="@menu/bottom_nav_menu_maid" />
 
 </RelativeLayout>

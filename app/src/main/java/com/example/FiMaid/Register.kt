@@ -43,17 +43,18 @@ class Register : AppCompatActivity() {
 
         btn_signup.setOnClickListener {
             var name = et_nama.text.toString()
-
             var phone = et_nomor.text.toString()
             var email = et_email.text.toString()
             var password = et_password.text.toString()
             var alamat = et_alamat.text.toString()
-            if (name.isNotEmpty() || alamat.isNotEmpty() || phone.isNotEmpty() || email.isNotEmpty() || password.isNotEmpty()
+            var age = et_usia.text.toString()
+            var role = role.text.toString()
+            if (name.isNotEmpty() || alamat.isNotEmpty() || role.isNotEmpty() || phone.isNotEmpty() || email.isNotEmpty() || password.isNotEmpty()
             ) {
                 fAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
-                            simpanToFirebase(name, alamat, email, password, phone)
+                            simpanToFirebase(name, alamat, age, email, password, phone, role)
                             Toast.makeText(this, "Register Berhasil!", Toast.LENGTH_SHORT).show()
                             onBackPressed()
                         } else {
@@ -123,7 +124,15 @@ class Register : AppCompatActivity() {
         }
     }
 
-    fun simpanToFirebase(name: String, alamat: String, email: String, password: String, phone: String) {
+    fun simpanToFirebase(
+        name: String,
+        alamat: String,
+        age: String,
+        email: String,
+        password: String,
+        phone: String,
+        role: String
+    ) {
         val uidUser = fAuth.currentUser?.uid
         val uid = helperPref.getUID()
         val nameXXX = UUID.randomUUID().toString()
@@ -137,7 +146,9 @@ class Register : AppCompatActivity() {
                 dbRef.child("/alamat").setValue(alamat)
                 dbRef.child("/email").setValue(email)
                 dbRef.child("/password").setValue(password)
+                dbRef.child("/role").setValue(role)
                 dbRef.child("/phone").setValue(phone)
+                dbRef.child("/age").setValue(age)
                 dbRef.child("/img").setValue(it.toString())
             }
             Toast.makeText(

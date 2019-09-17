@@ -38,4 +38,5 @@ class PrefHelper {
         return sharedSet.getInt(COUNTER_ID, 1)
     }
 
+
 }

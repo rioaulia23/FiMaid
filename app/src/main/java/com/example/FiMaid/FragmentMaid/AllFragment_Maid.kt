@@ -1,12 +1,10 @@
-package com.example.FiMaid
+package com.example.FiMaid.FragmentMaid
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
-import com.example.FiMaid.Fragment.FragmentHistory
-import com.example.FiMaid.Fragment.FragmentHome
 import com.example.FiMaid.Helper.PrefHelper
-import com.example.uangku.fragment.FragmentAccount
+import com.example.FiMaid.R
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -15,42 +13,35 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import kotlinx.android.synthetic.main.bottom_nav.*
+import kotlinx.android.synthetic.main.bottom_nav_maid.*
 
-class AllFragment : AppCompatActivity() {
+class AllFragment_Maid : AppCompatActivity() {
     lateinit var pref: PrefHelper
     val manager = supportFragmentManager
 
-    val fragmentHome = FragmentHome()
-    val fragmentHistory = FragmentHistory()
-    val fragmentAccount = FragmentAccount()
-    private val onNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
-        when (item.itemId) {
-            R.id.home -> {
-                val transaction = manager.beginTransaction()
-                transaction.replace(R.id.content, fragmentHome)
-                transaction.addToBackStack(null)
-                transaction.commit()
-                return@OnNavigationItemSelectedListener true
-            }
-            R.id.calender -> {
-                val transaction = manager.beginTransaction()
-                transaction.replace(R.id.content, fragmentHistory)
-                transaction.addToBackStack(null)
-                transaction.commit()
-                return@OnNavigationItemSelectedListener true
-            }
+    val jobFragment = JobFragment()
 
-            R.id.account -> {
-                val transaction = manager.beginTransaction()
-                transaction.replace(R.id.content, fragmentAccount)
-                transaction.addToBackStack(null)
-                transaction.commit()
-                return@OnNavigationItemSelectedListener true
+    val fragmentAccountMaid = FragmentAccountMaid()
+    private val onNavigationItemSelectedListener =
+        BottomNavigationView.OnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.list -> {
+                    val transaction = manager.beginTransaction()
+                    transaction.replace(R.id.content1, jobFragment)
+                    transaction.addToBackStack(null)
+                    transaction.commit()
+                    return@OnNavigationItemSelectedListener true
+                }
+                R.id.account1 -> {
+                    val transaction = manager.beginTransaction()
+                    transaction.replace(R.id.content1, fragmentAccountMaid)
+                    transaction.addToBackStack(null)
+                    transaction.commit()
+                    return@OnNavigationItemSelectedListener true
+                }
             }
+            false
         }
-        false
-    }
     lateinit var fAuth: FirebaseAuth
     lateinit var preferences: PrefHelper
     lateinit var storageReference: StorageReference
@@ -58,7 +49,7 @@ class AllFragment : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.bottom_nav)
+        setContentView(R.layout.bottom_nav_maid)
         preferences = PrefHelper(this)
         fAuth = FirebaseAuth.getInstance()
         firebaseStorage = FirebaseStorage.getInstance()
@@ -66,7 +57,7 @@ class AllFragment : AppCompatActivity() {
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("name").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
-                    tv_nama.text = p0.value.toString()
+                    tv_nama_maid.text = p0.value.toString()
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -78,16 +69,16 @@ class AllFragment : AppCompatActivity() {
                     Glide.with(applicationContext).load(p0.value.toString())
                         .centerCrop()
                         .error(R.drawable.ic_launcher_background)
-                        .into(ava2)
+                        .into(avamaid1)
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
                 }
             })
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        val navView: BottomNavigationView = findViewById(R.id.nav_view_maid)
 
         val transaction = manager.beginTransaction()
-        transaction.replace(R.id.content, fragmentHome)
+        transaction.replace(R.id.content1, jobFragment)
         transaction.addToBackStack(null)
         transaction.commit()
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)

@@ -107,6 +107,7 @@ class FragmentAccountMaid : Fragment() {
 
         fAuth = FirebaseAuth.getInstance()
         logoutmaid.setOnClickListener {
+            preferences.setStatusUser(false)
             fAuth.signOut()
             val intent = Intent(context, Login::class.java)
             startActivity(intent)

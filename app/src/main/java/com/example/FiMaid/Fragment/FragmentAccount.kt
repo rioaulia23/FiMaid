@@ -107,6 +107,7 @@ class FragmentAccount : Fragment() {
 
         fAuth = FirebaseAuth.getInstance()
         tes.setOnClickListener {
+            preferences.setStatus(false)
             fAuth.signOut()
             val intent = Intent(context, Login::class.java)
             startActivity(intent)

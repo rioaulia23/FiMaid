@@ -11,7 +11,6 @@ import com.example.FiMaid.Helper.PrefHelper
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -34,16 +33,49 @@ class Login : AppCompatActivity() {
 
         helperPref = PrefHelper(this)
         fAuth = FirebaseAuth.getInstance()
-        val gso = GoogleSignInOptions.Builder(
-            GoogleSignInOptions.DEFAULT_SIGN_IN
-        )
-            .requestIdToken(getString(R.string.default_web_client_id))
-            .requestEmail()
-            .build()
-        mGoogleSignIn = GoogleSignIn.getClient(this, gso)
-//        sign_button_google.setOnClickListener {
-//            signIN()
-//        }
+        if (!helperPref.cekStatus()!!) {
+
+        } else {
+            if (fAuth.currentUser != null) {
+                startActivity(
+                    Intent(
+                        this, AllFragment::class.java
+                    )
+                )
+                finish()
+            } else {
+
+            }
+            startActivity(
+                Intent(
+                    this,
+                    AllFragment::class.java
+                )
+            )
+            finish()
+        }
+
+        if (!helperPref.cekStatusUser()!!) {
+
+        } else {
+            if (fAuth.currentUser != null) {
+                startActivity(
+                    Intent(
+                        this, AllFragment_Maid::class.java
+                    )
+                )
+                finish()
+            } else {
+
+            }
+            startActivity(
+                Intent(
+                    this,
+                    AllFragment_Maid::class.java
+                )
+            )
+            finish()
+        }
         tv_signup.setOnClickListener {
             startActivity(Intent(this, Register::class.java))
         }
@@ -140,12 +172,12 @@ class Login : AppCompatActivity() {
             }
         }
     }
-
-
-    private fun signIN() {
-        val signInIntent = mGoogleSignIn.signInIntent
-        startActivityForResult(signInIntent, RC_SIGN_IN)
-    }
+//
+//
+//    private fun signIN() {
+//        val signInIntent = mGoogleSignIn.signInIntent
+//        startActivityForResult(signInIntent, RC_SIGN_IN)
+//    }
 
     private fun firebaseAuthWithGoogle(account: GoogleSignInAccount) {
         Log.d("FAUTH_LOGIN", "firebaseAuth : ${account.id}")
@@ -170,6 +202,7 @@ class Login : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
+            helperPref.setStatus(true)
             Toast.makeText(
                 this, "Welcome",
                 Toast.LENGTH_SHORT
@@ -180,6 +213,7 @@ class Login : AppCompatActivity() {
 
     private fun updateUII(user: FirebaseUser?) {
         if (user != null) {
+            helperPref.setStatusUser(true)
             Toast.makeText(
                 this, "Welcome",
                 Toast.LENGTH_SHORT

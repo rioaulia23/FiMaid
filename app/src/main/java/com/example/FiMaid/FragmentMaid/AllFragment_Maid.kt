@@ -30,17 +30,15 @@ class AllFragment_Maid : AppCompatActivity() {
                     transaction.replace(R.id.content1, jobFragment)
                     transaction.addToBackStack(null)
                     transaction.commit()
-                    return@OnNavigationItemSelectedListener true
                 }
                 R.id.account1 -> {
                     val transaction = manager.beginTransaction()
                     transaction.replace(R.id.content1, fragmentAccountMaid)
                     transaction.addToBackStack(null)
                     transaction.commit()
-                    return@OnNavigationItemSelectedListener true
                 }
             }
-            false
+            true
         }
     lateinit var fAuth: FirebaseAuth
     lateinit var preferences: PrefHelper
@@ -84,5 +82,9 @@ class AllFragment_Maid : AppCompatActivity() {
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
 
+    }
+
+    override fun onBackPressed() {
+        finish()
     }
 }

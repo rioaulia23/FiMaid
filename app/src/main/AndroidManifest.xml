@@ -3,6 +3,7 @@
           package="com.example.FiMaid">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
             android:allowBackup="true"
@@ -26,6 +27,9 @@
         <activity android:name=".SelectRole" />
         <activity android:name=".FragmentMaid.AllFragment_Maid" />
         <activity android:name=".FragmentMaid.EditProfileMaid" />
+        <activity android:name=".DetailMaid" />
+        <activity android:name=".Detailfoto" />
+
     </application>
 
 </manifest>

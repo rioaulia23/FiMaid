@@ -117,6 +117,7 @@ class FragmentAccount : Fragment() {
 
             val intent = Intent(context, EditProfile::class.java)
             startActivity(intent)
+            activity!!.finish()
 
         }
     }

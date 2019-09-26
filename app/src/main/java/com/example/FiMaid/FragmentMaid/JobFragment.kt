@@ -13,6 +13,6 @@ class JobFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.profilemaid, container, false)
+        return inflater.inflate(R.layout.job, container, false)
     }
 }

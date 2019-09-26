@@ -185,7 +185,11 @@ class EditProfile : AppCompatActivity() {
 
                     try {
                         val storageRef: StorageReference = storageReference
-                            .child("img/$uidUser/${preferences.getUID()}.${GetFileExtension(filePathImage)}")
+                            .child(
+                                "img/$uidUser/${preferences.getUID()}.${GetFileExtension(
+                                    filePathImage
+                                )}"
+                            )
                         storageRef.putFile(filePathImage).addOnSuccessListener {
                             storageRef.downloadUrl.addOnSuccessListener {
                                 dbRef.child("user/$uidUser/img").setValue(it.toString())
@@ -207,6 +211,7 @@ class EditProfile : AppCompatActivity() {
                 }
             })
             startActivity(Intent(this, AllFragment::class.java))
+            finish()
         }
 
     }

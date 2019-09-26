@@ -46,13 +46,8 @@ class Login : AppCompatActivity() {
             } else {
 
             }
-            startActivity(
-                Intent(
-                    this,
-                    AllFragment::class.java
-                )
-            )
-            finish()
+
+
         }
 
         if (!helperPref.cekStatusUser()!!) {
@@ -68,13 +63,7 @@ class Login : AppCompatActivity() {
             } else {
 
             }
-            startActivity(
-                Intent(
-                    this,
-                    AllFragment_Maid::class.java
-                )
-            )
-            finish()
+
         }
         tv_signup.setOnClickListener {
             startActivity(Intent(this, Register::class.java))
@@ -113,6 +102,7 @@ class Login : AppCompatActivity() {
                                                             override fun onDataChange(p0: DataSnapshot) {
                                                                 val user = fAuth.currentUser
                                                                 updateUI(user)
+                                                                finish()
                                                                 Toast.makeText(
                                                                     applicationContext,
                                                                     "Welcome ${p0.value.toString()}!",
@@ -133,6 +123,7 @@ class Login : AppCompatActivity() {
                                                             override fun onDataChange(p0: DataSnapshot) {
                                                                 val user = fAuth.currentUser
                                                                 updateUII(user)
+                                                                finish()
                                                                 Toast.makeText(
                                                                     applicationContext,
                                                                     "Welcome ${p0.value.toString()}!",
@@ -203,10 +194,7 @@ class Login : AppCompatActivity() {
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             helperPref.setStatus(true)
-            Toast.makeText(
-                this, "Welcome",
-                Toast.LENGTH_SHORT
-            ).show()
+
             startActivity(Intent(this, AllFragment::class.java))
         }
     }
@@ -214,10 +202,7 @@ class Login : AppCompatActivity() {
     private fun updateUII(user: FirebaseUser?) {
         if (user != null) {
             helperPref.setStatusUser(true)
-            Toast.makeText(
-                this, "Welcome",
-                Toast.LENGTH_SHORT
-            ).show()
+            finish()
             startActivity(Intent(this, AllFragment_Maid::class.java))
         }
     }

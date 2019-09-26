@@ -106,29 +106,7 @@ class EditProfileMaid : AppCompatActivity() {
                 }
             }
         }
-        avamaid2.setOnClickListener {
-            when {
-                (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) -> {
-                    if (ContextCompat.checkSelfPermission(
-                            this,
-                            Manifest.permission.READ_EXTERNAL_STORAGE
-                        )
-                        != PackageManager.PERMISSION_GRANTED
-                    ) {
-                        requestPermissions(
-                            arrayOf(
-                                Manifest.permission.READ_EXTERNAL_STORAGE
-                            ), PERMISSION_RC
-                        )
-                    } else {
-                        imageChooser()
-                    }
-                }
-                else -> {
-                    imageChooser()
-                }
-            }
-        }
+
 
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("name").addListenerForSingleValueEvent(object : ValueEventListener {
@@ -152,6 +130,24 @@ class EditProfileMaid : AppCompatActivity() {
             .child("phone").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
                     etp_nomor1_maid.setText(p0.value.toString())
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+                }
+            })
+        FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
+            .child("age").addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(p0: DataSnapshot) {
+                    etp_age1_maid.setText(p0.value.toString())
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+                }
+            })
+        FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
+            .child("desc").addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(p0: DataSnapshot) {
+                    etp_desc1_maid.setText(p0.value.toString())
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -214,6 +210,7 @@ class EditProfileMaid : AppCompatActivity() {
                 }
             })
             startActivity(Intent(this, AllFragment_Maid::class.java))
+            finish()
         }
 
     }

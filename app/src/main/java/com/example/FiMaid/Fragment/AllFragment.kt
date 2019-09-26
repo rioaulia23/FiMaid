@@ -47,7 +47,7 @@ class AllFragment : AppCompatActivity() {
                 return@OnNavigationItemSelectedListener true
             }
         }
-        false
+        true
     }
     lateinit var fAuth: FirebaseAuth
     lateinit var preferences: PrefHelper
@@ -91,5 +91,9 @@ class AllFragment : AppCompatActivity() {
         navView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
 
 
+    }
+
+    override fun onBackPressed() {
+        finish()
     }
 }

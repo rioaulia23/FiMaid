@@ -1,11 +1,14 @@
 package com.example.FiMaid.FragmentMaid
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.example.FiMaid.Helper.PrefHelper
@@ -41,7 +44,7 @@ class FragmentAccountMaid : Fragment() {
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("alamat").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
-                    etp_alamat_maid.setText(p0.value.toString())
+                    etp_alamat_maid.text = p0.value.toString()
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -50,7 +53,7 @@ class FragmentAccountMaid : Fragment() {
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("phone").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
-                    etp_nomor_maid.setText(p0.value.toString())
+                    etp_nomor_maid.text = p0.value.toString()
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -59,7 +62,7 @@ class FragmentAccountMaid : Fragment() {
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("name").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
-                    etp_nama_maid.setText(p0.value.toString())
+                    etp_nama_maid.text = p0.value.toString()
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -68,7 +71,7 @@ class FragmentAccountMaid : Fragment() {
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("email").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
-                    etp_email_maid.setText(p0.value.toString())
+                    etp_email_maid.text = p0.value.toString()
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -77,7 +80,7 @@ class FragmentAccountMaid : Fragment() {
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("age").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
-                    etp_usia1_maid.setText(p0.value.toString())
+                    etp_usia1_maid.text = p0.value.toString()
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -86,7 +89,25 @@ class FragmentAccountMaid : Fragment() {
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("password").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
-                    etp_password_maid.setText(p0.value.toString())
+                    etp_password_maid.text = p0.value.toString()
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+                }
+            })
+        FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
+            .child("desc").addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(p0: DataSnapshot) {
+                    desc1.text = p0.value.toString()
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+                }
+            })
+        FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
+            .child("verified").addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(p0: DataSnapshot) {
+                    etp_verified.text = p0.value.toString()
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
@@ -117,7 +138,31 @@ class FragmentAccountMaid : Fragment() {
 
             val intent = Intent(context, EditProfileMaid::class.java)
             startActivity(intent)
+            activity!!.finish()
+
+        }
+        val CAMERA_REQUEST_CODE = 5
+
+        verified.setOnClickListener {
+            val callCameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            if (callCameraIntent.resolveActivity(activity!!.packageManager) != null) {
+                startActivityForResult(callCameraIntent, CAMERA_REQUEST_CODE)
+            }
+
 
         }
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == Activity.RESULT_OK && data != null) {
+        } else {
+            Toast.makeText(activity, "tes", Toast.LENGTH_SHORT).show()
+        }
+    }
 }
+
+
+
+

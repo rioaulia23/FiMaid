@@ -47,14 +47,16 @@ class Register : AppCompatActivity() {
             var email = et_email.text.toString()
             var password = et_password.text.toString()
             var alamat = et_alamat.text.toString()
-            var age = et_usia.text.toString()
-            var role = role.text.toString()
-            if (name.isNotEmpty() || alamat.isNotEmpty() || role.isNotEmpty() || phone.isNotEmpty() || email.isNotEmpty() || password.isNotEmpty()
+            var age = desc.text.toString()
+            var desc = et_usia.text.toString()
+            var role = role.toString()
+            if (name.isNotEmpty() && alamat.isNotEmpty() && role.isNotEmpty() && phone.isNotEmpty() && email.isNotEmpty() && desc.isNotEmpty()
+
             ) {
                 fAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
-                            simpanToFirebase(name, alamat, age, email, password, phone, role)
+                            simpanToFirebase(name, alamat, age, email, password, phone, role, desc)
                             Toast.makeText(this, "Register Berhasil!", Toast.LENGTH_SHORT).show()
                             onBackPressed()
                         } else {
@@ -131,7 +133,9 @@ class Register : AppCompatActivity() {
         email: String,
         password: String,
         phone: String,
-        role: String
+        role: String,
+        desc: String
+
     ) {
         val uidUser = fAuth.currentUser?.uid
         val uid = helperPref.getUID()
@@ -149,6 +153,8 @@ class Register : AppCompatActivity() {
                 dbRef.child("/role").setValue(role)
                 dbRef.child("/phone").setValue(phone)
                 dbRef.child("/age").setValue(age)
+                dbRef.child("/age").setValue(desc)
+                dbRef.child("/verified").setValue("Not Verified")
                 dbRef.child("/img").setValue(it.toString())
             }
             Toast.makeText(

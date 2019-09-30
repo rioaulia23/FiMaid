@@ -53,7 +53,7 @@ class FragmentHome : Fragment() {
                         val addDataAll =
                             dataSnapshot.getValue(UserModel::class.java)
                         addDataAll!!.key = dataSnapshot.key
-                        if (addDataAll.verified == "verified") {
+                        if (addDataAll.verified.toString() == "verified") {
                             list.add(addDataAll)
                         }
                         userAdapter = UserAdapter(context!!, list)

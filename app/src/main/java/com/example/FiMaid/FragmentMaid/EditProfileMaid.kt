@@ -154,6 +154,15 @@ class EditProfileMaid : AppCompatActivity() {
                 }
             })
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
+            .child("salary").addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(p0: DataSnapshot) {
+                    etp_gaji.setText(p0.value.toString())
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+                }
+            })
+        FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("img").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
                     Glide.with(applicationContext).load(p0.value.toString())
@@ -180,6 +189,7 @@ class EditProfileMaid : AppCompatActivity() {
                     val editalamat = etp_alamat1_maid.text.toString()
                     val editusia = etp_age1_maid.text.toString()
                     val editdesc = etp_desc1_maid.text.toString()
+                    val editgaji = etp_gaji.text.toString()
                     try {
                         val storageRef: StorageReference = storageReference
                             .child(
@@ -205,6 +215,7 @@ class EditProfileMaid : AppCompatActivity() {
                     dbRef.child("user/$uidUser/age").setValue(editusia)
                     dbRef.child("user/$uidUser/name").setValue(editname)
                     dbRef.child("user/$uidUser/phone").setValue(editno)
+                    dbRef.child("user/$uidUser/salary").setValue(editgaji)
                     Toast.makeText(this@EditProfileMaid, "Sukses", Toast.LENGTH_SHORT).show()
 
                 }

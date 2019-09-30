@@ -40,12 +40,14 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder> {
         holder.ll.setOnClickListener {
             val intent = Intent(mCtx, DetailMaid::class.java)
             intent.putExtra("nama_user", userModel.name)
+            intent.putExtra("id", userModel.id)
             intent.putExtra("foto_profile", userModel.img)
             intent.putExtra("umur", userModel.age)
             intent.putExtra("phone", userModel.phone)
             intent.putExtra("desc", userModel.desc)
             intent.putExtra("alamat", userModel.alamat)
             intent.putExtra("email", userModel.email)
+            intent.putExtra("uang", userModel.salary)
 
             mCtx.startActivity(intent)
         }

@@ -1,17 +1,16 @@
 package com.example.FiMaid.Model
 
-import com.google.firebase.database.IgnoreExtraProperties
-
-@IgnoreExtraProperties
 data class UserModel(
-    var name: String? = null
-    , var email: String? = null
-    , var id: String? = null
-    , var alamat: String? = null
-    , var img: String? = null
-    , var verified: String? = null
-    , var key: String? = null
-    , var age: String? = null
-    , var phone: String? = null
-    , var desc: String? = null
+    var name: String? = ""
+    , var email: String? = ""
+    , var id: String? = ""
+    , var alamat: String? = ""
+    , var img: String? = ""
+    , var verified: String? = ""
+    , var key: String? = ""
+    , var age: String? = ""
+    , var phone: String? = ""
+    , var desc: String? = ""
+    , var salary: String? = ""
+    , var request: RequestModel? = null
 )

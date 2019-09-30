@@ -34,7 +34,7 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="15dp"
                 android:orientation="vertical"
                 android:background="#fff"
                 android:padding="10dp">
@@ -212,6 +212,31 @@
                     android:textColor="#000"
                     android:textSize="12sp" />
         </LinearLayout>
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="Gaji"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+
+            <TextView
+                    android:id="@+id/gaji"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:inputType="number"
+                    android:text="2.000.000"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+        </LinearLayout>
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -224,7 +249,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
-                    android:text="Status"
+                    android:text="Account"
                     android:textColor="#000"
                     android:textSize="12sp" />
 
@@ -262,8 +287,7 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/etp_status1"
                 android:orientation="horizontal"
-
-                android:padding="20dp">
+                android:padding="10dp">
 
             <Button
                     android:id="@+id/editmaid"
@@ -271,7 +295,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:layout_margin="25dp"
+                    android:layout_margin="10dp"
                     android:background="@drawable/lengkung3"
                     android:text="edit"
 
@@ -284,11 +308,10 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:layout_margin="25dp"
+                    android:layout_margin="10dp"
                     android:background="@drawable/lengkung2"
                     android:text="logout"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginBottom="20dp"
+
                     android:textColor="#ffff" />
         </LinearLayout>
     </LinearLayout>

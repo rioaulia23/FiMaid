@@ -51,6 +51,15 @@ class FragmentAccountMaid : Fragment() {
                 }
             })
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
+            .child("salary").addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(p0: DataSnapshot) {
+                    gaji.text = p0.value.toString()
+                }
+
+                override fun onCancelled(p0: DatabaseError) {
+                }
+            })
+        FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
             .child("phone").addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
                     etp_nomor_maid.text = p0.value.toString()

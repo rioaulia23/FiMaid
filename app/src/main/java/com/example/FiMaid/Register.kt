@@ -50,17 +50,32 @@ class Register : AppCompatActivity() {
             var age = desc.text.toString()
             var desc = et_usia.text.toString()
             var role = role.toString()
+            var salary = salary.text.toString()
             if (name.isNotEmpty() && alamat.isNotEmpty() && role.isNotEmpty() && phone.isNotEmpty() && email.isNotEmpty() && desc.isNotEmpty()
-
+                && salary.isNotEmpty()
             ) {
                 fAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
-                            simpanToFirebase(name, alamat, age, email, password, phone, role, desc)
+                            simpanToFirebase(
+                                name,
+                                alamat,
+                                age,
+                                email,
+                                password,
+                                phone,
+                                role,
+                                desc,
+                                salary
+                            )
                             Toast.makeText(this, "Register Berhasil!", Toast.LENGTH_SHORT).show()
                             onBackPressed()
                         } else {
-                            Toast.makeText(this, "Value must be 6 or more digit!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this,
+                                "Value must be 6 or more digit!",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
             } else {
@@ -134,8 +149,8 @@ class Register : AppCompatActivity() {
         password: String,
         phone: String,
         role: String,
-        desc: String
-
+        desc: String,
+        salary: String
     ) {
         val uidUser = fAuth.currentUser?.uid
         val uid = helperPref.getUID()
@@ -153,7 +168,8 @@ class Register : AppCompatActivity() {
                 dbRef.child("/role").setValue(role)
                 dbRef.child("/phone").setValue(phone)
                 dbRef.child("/age").setValue(age)
-                dbRef.child("/age").setValue(desc)
+                dbRef.child("/desc").setValue(desc)
+                dbRef.child("/salary").setValue(salary)
                 dbRef.child("/verified").setValue("Not Verified")
                 dbRef.child("/img").setValue(it.toString())
             }

@@ -10,7 +10,7 @@ class Detailfoto : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.detailfoto)
 
-        val imageProf = intent.getStringExtra("foto_profile")
+        val imageProf = intent.getStringExtra("img")
         Glide.with(this).load(imageProf)
             .centerCrop()
             .error(R.drawable.ic_launcher_background)

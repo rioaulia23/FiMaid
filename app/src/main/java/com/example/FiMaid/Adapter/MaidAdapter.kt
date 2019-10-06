@@ -10,7 +10,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.FiMaid.DetailMaid
+import com.example.FiMaid.DetailBoss
 import com.example.FiMaid.Model.UserModel
 import com.example.FiMaid.R
 import com.google.firebase.auth.FirebaseAuth
@@ -30,10 +30,11 @@ class MaidAdapter : RecyclerView.Adapter<MaidAdapter.MaidViewHolder> {
             .error(R.drawable.ic_launcher_background)
             .into(holder.img)
         holder.tvnama.text = maidModel.name.toString()
-        holder.tv.text = maidModel.age.toString()
+        holder.tv.text = maidModel.verified.toString()
         holder.ll.setOnClickListener {
-            val intent = Intent(mCtx, DetailMaid::class.java)
+            val intent = Intent(mCtx, DetailBoss::class.java)
             intent.putExtra("nama_maid", maidModel.name)
+            intent.putExtra("veri", maidModel.verified)
             intent.putExtra("id1", maidModel.id)
             intent.putExtra("foto_profile1", maidModel.img)
             intent.putExtra("umur1", maidModel.age)
@@ -74,6 +75,7 @@ class MaidAdapter : RecyclerView.Adapter<MaidAdapter.MaidViewHolder> {
             tvnama = itemView.findViewById(R.id.tvnamamaid1)
             img = itemView.findViewById(R.id.img1)
             tv = itemView.findViewById(R.id.status1)
+
         }
     }
 }

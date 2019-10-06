@@ -24,11 +24,14 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".Fragment.AllFragment" />
         <activity android:name=".Fragment.EditProfile" />
-        <activity android:name=".SelectRole" />
+        <activity android:name=".Verification_Boss" />
         <activity android:name=".FragmentMaid.AllFragment_Maid" />
         <activity android:name=".FragmentMaid.EditProfileMaid" />
         <activity android:name=".DetailMaid" />
         <activity android:name=".Detailfoto" />
+        <activity android:name=".DetailBoss" />
+        <activity android:name=".Verification_Maid" />
+        <activity android:name=".DetailRequest" />
 
     </application>
 

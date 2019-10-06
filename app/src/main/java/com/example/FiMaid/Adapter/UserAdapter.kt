@@ -49,6 +49,7 @@ class UserAdapter : RecyclerView.Adapter<UserAdapter.UserViewHolder> {
             intent.putExtra("email", userModel.email)
             intent.putExtra("uang", userModel.salary)
 
+
             mCtx.startActivity(intent)
         }
     }

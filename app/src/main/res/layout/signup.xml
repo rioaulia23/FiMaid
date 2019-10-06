@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:gravity="center_horizontal"
-              android:background="#85c99c">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#85c99c"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
     <ImageView
             android:id="@+id/upload"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="30dp"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/upload"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
             android:clickable="true"
+            android:src="@drawable/upload"
 
-    />
+            />
 
     <LinearLayout
             android:layout_width="match_parent"
@@ -27,26 +27,26 @@
                 android:id="@+id/et_nama"
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:hint="Nama Lengkap"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:textAlignment="center"
-                android:textColorHint="#000"
                 android:background="@drawable/lengkung"
-                android:inputType="textEmailAddress" />
+                android:hint="Nama Lengkap"
+                android:inputType="textEmailAddress"
+                android:textAlignment="center"
+                android:textColorHint="#000" />
 
         <EditText
                 android:id="@+id/et_nomor"
                 android:layout_width="match_parent"
-                android:layout_margin="10dp"
                 android:layout_height="35dp"
-                android:hint="Nomor Handphone"
-                android:textAlignment="center"
-                android:textColorHint="#000"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/lengkung"
+                android:hint="Nomor Handphone"
+                android:inputType="number"
+                android:textAlignment="center"
 
-                android:inputType="number" />
+                android:textColorHint="#000" />
     </LinearLayout>
 
 
@@ -88,30 +88,30 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="6dp">
-    <EditText
-            android:id="@+id/et_alamat"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_margin="10dp"
-            android:hint="Alamat"
-            android:textAlignment="center"
-            android:textColorHint="#000"
-            android:background="@drawable/lengkung"
-            android:layout_weight="1"
-            android:inputType="textEmailAddress"
-    />
 
-    <EditText
-            android:id="@+id/et_usia"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/lengkung"
-            android:hint="Usia"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:textColorHint="#000" />
+        <EditText
+                android:id="@+id/et_alamat"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/lengkung"
+                android:hint="Alamat"
+                android:inputType="textEmailAddress"
+                android:textAlignment="center"
+                android:textColorHint="#000" />
+
+        <EditText
+                android:id="@+id/et_usia"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/lengkung"
+                android:hint="Usia"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textColorHint="#000" />
     </LinearLayout>
 
     <LinearLayout
@@ -122,27 +122,28 @@
 
         <Spinner
                 android:id="@+id/role"
-            android:layout_width="270dp"
-            android:layout_height="35dp"
+                android:layout_width="270dp"
+                android:layout_height="35dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-            android:background="@drawable/lengkung"
+                android:background="@drawable/lengkung"
                 android:entries="@array/type"
                 android:hint="Role"
-            android:textAlignment="center"
-            android:textColorHint="#000"
-                android:inputType="text" />
-    <EditText
-            android:id="@+id/salary"
-            android:layout_width="270dp"
-            android:layout_height="35dp"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/lengkung"
-            android:hint="Gaji"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:textColorHint="#000" />
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textColorHint="#000" />
+
+        <EditText
+                android:id="@+id/salary"
+                android:layout_width="270dp"
+                android:layout_height="35dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/lengkung"
+                android:hint="Gaji"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textColorHint="#000" />
     </LinearLayout>
 
     <EditText
@@ -156,16 +157,24 @@
             android:inputType="textMultiLine"
             android:textAlignment="center"
             android:textColorHint="#000" />
+
     <Button
             android:id="@+id/btn_signup"
             android:layout_width="294dp"
             android:layout_height="wrap_content"
-            android:text="Sign up"
-            android:background="@drawable/lengkung2"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="20dp"
-            android:textColor="#ffff"
-    />
+            android:background="@drawable/lengkung2"
+            android:text="Sign up"
+            android:textColor="#ffff" />
+
+    <ProgressBar
+            android:id="@+id/bar1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone" />
 
 
 </LinearLayout>

@@ -109,71 +109,30 @@ class EditProfileMaid : AppCompatActivity() {
 
 
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
-            .child("name").addListenerForSingleValueEvent(object : ValueEventListener {
+            .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
-                    etp_nama1_maid.setText(p0.value.toString())
-                }
-
-                override fun onCancelled(p0: DatabaseError) {
-                }
-            })
-        FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
-            .child("alamat").addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(p0: DataSnapshot) {
-                    etp_alamat1_maid.setText(p0.value.toString())
-                }
-
-                override fun onCancelled(p0: DatabaseError) {
-                }
-            })
-        FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
-            .child("phone").addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(p0: DataSnapshot) {
-                    etp_nomor1_maid.setText(p0.value.toString())
-                }
-
-                override fun onCancelled(p0: DatabaseError) {
-                }
-            })
-        FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
-            .child("age").addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(p0: DataSnapshot) {
-                    etp_age1_maid.setText(p0.value.toString())
-                }
-
-                override fun onCancelled(p0: DatabaseError) {
-                }
-            })
-        FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
-            .child("desc").addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(p0: DataSnapshot) {
-                    etp_desc1_maid.setText(p0.value.toString())
-                }
-
-                override fun onCancelled(p0: DatabaseError) {
-                }
-            })
-        FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
-            .child("salary").addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(p0: DataSnapshot) {
-                    etp_gaji.setText(p0.value.toString())
-                }
-
-                override fun onCancelled(p0: DatabaseError) {
-                }
-            })
-        FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
-            .child("img").addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(p0: DataSnapshot) {
-                    Glide.with(applicationContext).load(p0.value.toString())
+                    etp_nama1_maid.setText(p0.child("name").value.toString())
+                    etp_alamat1_maid.setText(p0.child("alamat").value.toString())
+                    etp_nomor1_maid.setText(p0.child("phone").value.toString())
+                    etp_age1_maid.setText(p0.child("age").value.toString())
+                    etp_desc1_maid.setText(p0.child("desc").value.toString())
+                    etp_gaji.setText(p0.child("salary").value.toString())
+                    Glide.with(applicationContext).load(p0.child("img").value.toString())
                         .centerCrop()
                         .error(R.drawable.ic_launcher_background)
                         .into(avamaid2)
+
                 }
 
                 override fun onCancelled(p0: DatabaseError) {
                 }
             })
+
+
+
+
+
+
         btnsave.setOnClickListener {
             val uidUser = fAuth.currentUser?.uid
             val counter = preferences.getUID()
@@ -217,11 +176,11 @@ class EditProfileMaid : AppCompatActivity() {
                     dbRef.child("user/$uidUser/phone").setValue(editno)
                     dbRef.child("user/$uidUser/salary").setValue(editgaji)
                     Toast.makeText(this@EditProfileMaid, "Sukses", Toast.LENGTH_SHORT).show()
+                    finish()
 
                 }
             })
-            startActivity(Intent(this, AllFragment_Maid::class.java))
-            finish()
+
         }
 
     }

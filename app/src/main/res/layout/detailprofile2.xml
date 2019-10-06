@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#d9cdcc"
+        android:gravity="center_horizontal"
         android:orientation="vertical">
 
     <ImageView
-            android:id="@+id/bg1"
+            android:id="@+id/bg"
             android:layout_width="match_parent"
-            android:layout_height="105dp"
+            android:layout_height="90dp"
             android:scaleType="centerCrop"
             android:src="@drawable/background" />
 
     <LinearLayout
-
+            android:id="@+id/lldata"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/bg"
@@ -22,11 +24,12 @@
             android:padding="20dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/ava3"
+                android:id="@+id/ava7"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:layout_gravity="center"
-                android:src="@mipmap/icon" />
+                android:layout_marginTop="5dp"
+                android:src="@drawable/logo" />
 
 
         <LinearLayout
@@ -44,16 +47,64 @@
                     android:textColor="#000"
                     android:textSize="12sp" />
 
-            <EditText
-                    android:id="@+id/etp_nama1"
+            <TextView
+                    android:id="@+id/etp_nama3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:layout_marginTop="5dp"
                     android:text="Farhan Agung Maulana"
                     android:textColor="#000"
                     android:textSize="12sp" />
         </LinearLayout>
 
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="Deskripsi Diri"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+
+            <TextView
+                    android:id="@+id/etp_desc3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="saya orang nya suka memasak dan saya orang nya gampang jatuh cinta tapi sama orang yang ganteng,saya orang yang sabar dalam menghadapi orang lain"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    app:passwordToggleEnabled="true" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="Email"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+
+            <TextView
+                    android:id="@+id/etp_email3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="famagung@gmail.com"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+        </LinearLayout>
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -69,10 +120,11 @@
                     android:textColor="#000"
                     android:textSize="12sp" />
 
-            <EditText
-                    android:id="@+id/etp_alamat1"
+            <TextView
+                    android:id="@+id/etp_alamat3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:text="Jl. Balikpapan"
                     android:textColor="#000"
                     android:textSize="12sp" />
@@ -92,14 +144,16 @@
                     android:textColor="#000"
                     android:textSize="12sp" />
 
-            <EditText
-                    android:id="@+id/etp_nomor1"
+            <TextView
+                    android:id="@+id/etp_nomor3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:inputType="number"
                     android:text="081364521654"
                     android:textColor="#000"
                     android:textSize="12sp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -112,44 +166,60 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
-                    android:text="Usia"
+                    android:text="Usia."
                     android:textColor="#000"
                     android:textSize="12sp" />
 
-            <EditText
-                    android:id="@+id/etp_usia2"
+            <TextView
+                    android:id="@+id/etp_age3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
                     android:inputType="number"
-                    android:text="29"
+                    android:text="18"
                     android:textColor="#000"
                     android:textSize="12sp" />
+
         </LinearLayout>
 
-        <ImageView
-                android:id="@+id/imgview"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:visibility="gone" />
-        <Button
-                android:id="@+id/tes2"
-                android:layout_width="294dp"
+        <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="25dp"
-                android:background="@drawable/lengkung3"
-                android:text="save"
-                android:textColor="#ffff" />
+                android:orientation="vertical"
+                android:padding="10dp">
 
-        <ProgressBar
-                android:id="@+id/bar2"
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="Gaji."
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+
+            <TextView
+                    android:id="@+id/gaji3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+
+                    android:text="9.000.000"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+
+        </LinearLayout>
+
+
+        <TextView
+                android:id="@+id/status_cok2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:layout_marginBottom="20dp"
-                android:visibility="gone" />
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="20dp"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="#000" />
+
 
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

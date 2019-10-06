@@ -35,6 +35,7 @@
                 android:orientation="vertical"
                 android:layout_marginTop="20dp"
                 android:padding="10dp"
+                android:background="#fff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -46,7 +47,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-            <EditText
+            <TextView
                     android:id="@+id/etp_nama"
                     android:text="Farhan Agung Maulana"
                     android:textColor="#000"
@@ -60,6 +61,7 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:padding="10dp"
+                android:background="#fff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -71,7 +73,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-            <EditText
+            <TextView
                     android:id="@+id/etp_password"
                     android:text="itspassword"
                     android:textSize="12sp"
@@ -87,6 +89,7 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:padding="10dp"
+                android:background="#fff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -98,7 +101,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-            <EditText
+            <TextView
                     android:id="@+id/etp_email"
                     android:text="famagung@gmail.com"
                     android:textSize="12sp"
@@ -111,6 +114,7 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:padding="10dp"
+                android:background="#fff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -122,7 +126,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-            <EditText
+            <TextView
                     android:id="@+id/etp_alamat"
                     android:text="Jl. Balikpapan"
                     android:textSize="12sp"
@@ -135,6 +139,7 @@
         <LinearLayout
                 android:orientation="vertical"
                 android:padding="10dp"
+                android:background="#fff"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -146,7 +151,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-            <EditText
+            <TextView
                     android:id="@+id/etp_nomor"
                     android:text="081364521654"
                     android:textSize="12sp"
@@ -160,6 +165,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:background="#fff"
                 android:padding="10dp">
 
             <TextView
@@ -170,7 +176,7 @@
                     android:textColor="#000"
                     android:textSize="12sp" />
 
-            <EditText
+            <TextView
                     android:id="@+id/etp_usia1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -179,6 +185,50 @@
                     android:text="081364521654"
                     android:textColor="#000"
                     android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:text="Account"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                <TextView
+                        android:id="@+id/etp_verified2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:focusable="false"
+                        android:inputType="text"
+                        android:text="Not Verified"
+                        android:textColor="#000"
+                        android:textSize="12sp" />
+
+                <Button
+                        android:id="@+id/verified2"
+                        android:layout_width="294dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:background="#4070bd"
+                        android:text="verified now!"
+
+                        android:textColor="#ffff" />
+            </LinearLayout>
         </LinearLayout>
 
         <LinearLayout

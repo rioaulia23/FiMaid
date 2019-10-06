@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/lljob1"
+        android:id="@+id/llrequest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/selectableItemBackground"
@@ -17,7 +17,7 @@
             android:layout_height="wrap_content">
 
         <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/img1"
+                android:id="@+id/imgrequest"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_margin="5dp"
@@ -35,7 +35,7 @@
                     android:layout_height="wrap_content">
 
                 <TextView
-                        android:id="@+id/tvnamamaid1"
+                        android:id="@+id/tvnamarequest"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Sujarwo bin Saleh"
@@ -45,7 +45,7 @@
             </LinearLayout>
 
             <TextView
-                    android:id="@+id/status1"
+                    android:id="@+id/statusrequest"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="verified"

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#d9cdcc"
@@ -15,7 +14,7 @@
             android:src="@drawable/background" />
 
     <LinearLayout
-            android:id="@+id/lldata"
+            android:id="@+id/lldata1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/bg"
@@ -24,11 +23,11 @@
             android:padding="20dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/ava2"
-                android:layout_marginTop="5dp"
+                android:id="@+id/ava4"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="5dp"
                 android:src="@drawable/logo" />
 
 
@@ -44,43 +43,19 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
                     android:text="Name"
-                    android:textColor="#000"
-                    android:textSize="12sp" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000" />
 
             <TextView
-                    android:id="@+id/etp_nama2"
+                    android:id="@+id/etp_nama3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="Farhan Agung Maulana"
-                    android:textColor="#000"
-                    android:textSize="12sp" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000" />
         </LinearLayout>
 
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp">
-
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="3dp"
-                    android:text="Deskripsi Diri"
-                    android:textColor="#000"
-                    android:textSize="12sp" />
-
-            <TextView
-                    android:id="@+id/etp_desc"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="saya orang nya suka memasak dan saya orang nya gampang jatuh cinta tapi sama orang yang ganteng,saya orang yang sabar dalam menghadapi orang lain"
-                    android:textColor="#000"
-                    android:textSize="12sp"
-                    app:passwordToggleEnabled="true" />
-        </LinearLayout>
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -93,17 +68,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
                     android:text="Email"
-                    android:textColor="#000"
-                    android:textSize="12sp" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000" />
 
             <TextView
-                    android:id="@+id/etp_email"
+                    android:id="@+id/etp_email1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="famagung@gmail.com"
-                    android:textColor="#000"
-                    android:textSize="12sp" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000" />
         </LinearLayout>
 
         <LinearLayout
@@ -117,17 +92,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
                     android:text="Alamat"
-                    android:textColor="#000"
-                    android:textSize="12sp" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000" />
 
             <TextView
-                    android:id="@+id/etp_alamat"
+                    android:id="@+id/etp_alamat2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:text="Jl. Balikpapan"
-                    android:textColor="#000"
-                    android:textSize="12sp" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000" />
         </LinearLayout>
 
         <LinearLayout
@@ -141,18 +116,18 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
                     android:text="No Telp."
-                    android:textColor="#000"
-                    android:textSize="12sp" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000" />
 
             <TextView
-                    android:id="@+id/etp_nomor2"
+                    android:id="@+id/etp_nomor3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:inputType="number"
                     android:text="081364521654"
-                    android:textColor="#000"
-                    android:textSize="12sp" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000" />
 
         </LinearLayout>
 
@@ -167,62 +142,84 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="3dp"
                     android:text="Usia."
-                    android:textColor="#000"
-                    android:textSize="12sp" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000" />
 
             <TextView
-                    android:id="@+id/etp_age"
+                    android:id="@+id/etp_age1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
                     android:inputType="number"
                     android:text="18"
-                    android:textColor="#000"
-                    android:textSize="12sp" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                    android:textColor="#000" />
 
         </LinearLayout>
+
 
         <LinearLayout
+                android:id="@+id/content_acc_rej"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
                 android:padding="10dp">
 
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="3dp"
-                    android:text="Gaji."
-                    android:textColor="#000"
-                    android:textSize="12sp" />
-
-            <TextView
-                    android:id="@+id/gaji1"
+            <Button
+                    android:id="@+id/reject"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/lengkung2"
+                    android:text="Reject"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
-                    android:text="9.000.000"
-                    android:textColor="#000"
-                    android:textSize="12sp" />
+            <Button
+                    android:id="@+id/btn_hire1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="20dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/lengkung3"
+                    android:text="Accept"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
 
         </LinearLayout>
 
-
+        <TextView
+                android:id="@+id/status_cok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="20dp"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="#000"
+                android:visibility="gone" />
 
         <Button
-                android:id="@+id/btn_hire"
-                android:layout_width="150dp"
+                android:id="@+id/done"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_margin="20dp"
+                android:layout_weight="1"
                 android:background="@drawable/lengkung3"
-                android:text="Hire me"
+                android:text="Selesai"
                 android:textAllCaps="false"
                 android:textColor="#fff"
                 android:textSize="16sp"
-                android:textStyle="bold" />
-
-
+                android:textStyle="bold"
+                android:visibility="gone" />
     </LinearLayout>
 
 </RelativeLayout>

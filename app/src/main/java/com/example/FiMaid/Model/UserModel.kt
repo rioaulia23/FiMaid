@@ -13,4 +13,5 @@ data class UserModel(
     , var desc: String? = ""
     , var salary: String? = ""
     , var request: RequestModel? = null
+    , var status: String? = null
 )

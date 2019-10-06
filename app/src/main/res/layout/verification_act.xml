@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+    <ImageView
+            android:id="@+id/imgver"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/logo" />
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:text="Foto lah bersama ktp anda, ambilah gambar terbaik. Verifikasi agar akun anda dapat tampil dalam list para pencari pembantu."
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+
+    <Button
+            android:id="@+id/btn_verification"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/lengkung3"
+            android:padding="10dp"
+            android:text="Verification"
+            android:textColor="#fff" />
+
+    <ProgressBar
+            android:id="@+id/bar2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone" />
+</LinearLayout>

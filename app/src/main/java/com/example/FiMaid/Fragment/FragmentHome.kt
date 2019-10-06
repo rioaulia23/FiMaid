@@ -45,7 +45,7 @@ class FragmentHome : Fragment() {
         fAuth = FirebaseAuth.getInstance()
         dbRef = FirebaseDatabase.getInstance()
             .getReference("user")
-        dbRef.orderByChild("role").equalTo("maid")
+        dbRef.orderByChild("role").equalTo("Maid")
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(data: DataSnapshot) {
                     list = ArrayList()
@@ -53,7 +53,8 @@ class FragmentHome : Fragment() {
                         val addDataAll =
                             dataSnapshot.getValue(UserModel::class.java)
                         addDataAll!!.key = dataSnapshot.key
-                        if (addDataAll.verified.toString() == "verified") {
+                        if (addDataAll.verified.toString() == "Verified") {
+                            if (addDataAll.status.toString() != "Rejected")
                             list.add(addDataAll)
                         }
                         userAdapter = UserAdapter(context!!, list)

@@ -28,6 +28,7 @@ class DetailMaid : AppCompatActivity() {
         etp_nomor2.text = intent.getStringExtra("phone")
         etp_age.text = intent.getStringExtra("umur")
         gaji1.text = intent.getStringExtra("uang")
+
         Glide.with(this).load(imageProf)
             .centerCrop()
             .error(R.drawable.ic_launcher_background)
@@ -35,6 +36,7 @@ class DetailMaid : AppCompatActivity() {
 
         ava2.setOnClickListener {
             val intent = Intent(this, Detailfoto::class.java)
+            intent.putExtra("img", imageProf)
             startActivity(intent)
         }
         btn_hire.setOnClickListener {
@@ -46,18 +48,18 @@ class DetailMaid : AppCompatActivity() {
 
     private fun showDialog() {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("App background color")
-        builder.setMessage("Are you want to set the app background color to RED?")
+        builder.setTitle("Meminta")
+        builder.setMessage("Apakah anda yakin akan memintanya untuk bekerja pada anda?")
         builder.setPositiveButton("YES") { dialog, which ->
             simpanToFirebase()
-        }
-        builder.setNegativeButton("No") { dialog, which ->
-            Toast.makeText(applicationContext, "You are not agree.", Toast.LENGTH_SHORT).show()
-        }
-        builder.setNeutralButton("Cancel") { _, _ ->
-            Toast.makeText(applicationContext, "You cancelled the dialog.", Toast.LENGTH_SHORT)
+            Toast.makeText(applicationContext, "Permintaan di kirim.", Toast.LENGTH_SHORT)
                 .show()
         }
+        builder.setNegativeButton("No") { dialog, which ->
+            Toast.makeText(applicationContext, "Tidak.", Toast.LENGTH_SHORT)
+                .show()
+        }
+
         val dialog: AlertDialog = builder.create()
         dialog.show()
     }

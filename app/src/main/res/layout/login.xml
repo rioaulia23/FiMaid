@@ -1,56 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity"
-        android:orientation="vertical"
+        android:background="#85c99c"
         android:gravity="center_horizontal"
-        android:background="#85c99c">
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
 
-    <ImageView android:layout_width="150dp"
-               android:layout_height="150dp"
-               android:layout_marginTop="50dp"
-            android:src="@drawable/logo"
-               android:layout_marginBottom="50dp"
-    />
+    <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/logo" />
+
     <EditText
             android:id="@+id/et_email1"
             android:layout_width="270dp"
             android:layout_height="45dp"
-            android:hint="Email"
-            android:textAlignment="center"
-            android:textColorHint="#000"
-            android:background="@drawable/lengkung"
             android:layout_marginBottom="20dp"
+            android:background="@drawable/lengkung"
+            android:hint="Email"
             android:inputType="textEmailAddress"
-    />
+            android:textAlignment="center"
+            android:textColorHint="#000" />
+
     <EditText
             android:id="@+id/et_password1"
             android:layout_width="270dp"
             android:layout_height="45dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/lengkung"
             android:hint="Password"
+            android:inputType="textPassword"
             android:textAlignment="center"
             android:textColorHint="#000"
-            android:background="@drawable/lengkung"
-            android:layout_marginBottom="20dp"
-            android:inputType="textPassword"
 
-    />
+            />
 
 
     <Button
             android:id="@+id/btn_login"
             android:layout_width="294dp"
             android:layout_height="wrap_content"
-            android:text="login"
-            android:background="@drawable/lengkung2"
             android:layout_marginTop="100dp"
             android:layout_marginBottom="20dp"
-            android:textColor="#ffff"
-    />
+            android:background="@drawable/lengkung2"
+            android:text="login"
+            android:textColor="#ffff" />
+
+    <ProgressBar
+            android:id="@+id/bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="20dp"
+            android:visibility="gone" />
 
 
     <TextView
@@ -58,8 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Don't have an account? Sign Up"
-            android:textColor="#000"
-            android:textSize="15sp"
             android:textAlignment="center"
-    />
+            android:textColor="#000"
+            android:textSize="15sp" />
 </LinearLayout>

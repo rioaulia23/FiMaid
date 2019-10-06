@@ -5,9 +5,8 @@
         android:background="#d9cdcc"
         android:orientation="vertical">
 
-
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rc_maid"
+            android:id="@+id/rc_history"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
@@ -15,5 +14,4 @@
             android:padding="10dp"
 
             />
-
 </LinearLayout>

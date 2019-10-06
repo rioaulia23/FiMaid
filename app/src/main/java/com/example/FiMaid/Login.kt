@@ -3,6 +3,7 @@ package com.example.FiMaid
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.FiMaid.Fragment.AllFragment
@@ -75,6 +76,8 @@ class Login : AppCompatActivity() {
             if (email.isNotEmpty() || pass.isNotEmpty() ||
                 !email.equals("") || !pass.equals("")
             ) {
+                bar.visibility = View.VISIBLE
+                btn_login.visibility = View.GONE
                 fAuth.signInWithEmailAndPassword(email, pass)
                     .addOnSuccessListener {
                         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
@@ -90,7 +93,7 @@ class Login : AppCompatActivity() {
                                             ValueEventListener {
                                             override fun onDataChange(p0: DataSnapshot) {
                                                 val role = p0.value.toString()
-                                                if (role == "boss") {
+                                                if (p0.value.toString() == "Boss") {
                                                     FirebaseDatabase.getInstance()
                                                         .getReference("user/${id}")
                                                         .child("name")
@@ -101,6 +104,8 @@ class Login : AppCompatActivity() {
 
                                                             override fun onDataChange(p0: DataSnapshot) {
                                                                 val user = fAuth.currentUser
+                                                                helperPref.setStatus(true)
+                                                                helperPref.setStatusUser(false)
                                                                 updateUI(user)
                                                                 finish()
                                                                 Toast.makeText(
@@ -110,7 +115,7 @@ class Login : AppCompatActivity() {
                                                                 ).show()
                                                             }
                                                         })
-                                                } else if (role == "maid") {
+                                                } else if (role == "Maid") {
                                                     FirebaseDatabase.getInstance()
                                                         .getReference("user/${id}")
                                                         .child("name")
@@ -122,7 +127,9 @@ class Login : AppCompatActivity() {
 
                                                             override fun onDataChange(p0: DataSnapshot) {
                                                                 val user = fAuth.currentUser
-                                                                updateUII(user)
+                                                                helperPref.setStatus(false)
+                                                                helperPref.setStatusUser(true)
+                                                                updateUI(user)
                                                                 finish()
                                                                 Toast.makeText(
                                                                     applicationContext,
@@ -153,6 +160,8 @@ class Login : AppCompatActivity() {
                             "Username atau Password salah!",
                             Toast.LENGTH_SHORT
                         ).show()
+                        bar.visibility = View.GONE
+                        btn_login.visibility = View.VISIBLE
                     }
             } else {
                 Toast.makeText(
@@ -160,6 +169,8 @@ class Login : AppCompatActivity() {
                     "LOGIN GAGAL",
                     Toast.LENGTH_SHORT
                 ).show()
+
+
             }
         }
     }
@@ -193,19 +204,22 @@ class Login : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
-            helperPref.setStatus(true)
-
-            startActivity(Intent(this, AllFragment::class.java))
+            if (helperPref.cekStatus()!!) {
+                startActivity(Intent(this, AllFragment::class.java))
+                finish()
+            } else if (helperPref.cekStatusUser()!!) {
+                startActivity(Intent(this, AllFragment_Maid::class.java))
+                finish()
+            }
         }
     }
-
-    private fun updateUII(user: FirebaseUser?) {
-        if (user != null) {
-            helperPref.setStatusUser(true)
-            finish()
-            startActivity(Intent(this, AllFragment_Maid::class.java))
-        }
-    }
+//
+//    private fun updateUII(user: FirebaseUser?) {
+//        if (user != null) {
+//            helperPref.setStatusUser(true)
+//
+//        }
+//    }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)

@@ -45,7 +45,7 @@ class JobFragment : Fragment() {
         recyclerView!!.setHasFixedSize(true)
         fAuth = FirebaseAuth.getInstance()
         dbRef = FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}/request")
-        dbRef.addValueEventListener(object : ValueEventListener {
+        dbRef.orderByChild("status").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(data: DataSnapshot) {
                 list = ArrayList()
                 for (dataRequest in data.children) {
@@ -53,6 +53,7 @@ class JobFragment : Fragment() {
                     FirebaseDatabase.getInstance().getReference("user/${addDataAll!!.id_boss}")
                         .addListenerForSingleValueEvent(object : ValueEventListener {
                             override fun onDataChange(p0: DataSnapshot) {
+
                                 e("cpoooooooool", addDataAll.id_boss!!)
                                 list.add(
                                     UserModel(
@@ -61,7 +62,7 @@ class JobFragment : Fragment() {
                                         p0.child("id").value.toString(),
                                         p0.child("alamat").value.toString(),
                                         p0.child("img").value.toString(),
-                                        "",
+                                        p0.child("verified").value.toString(),
                                         p0.key,
                                         p0.child("age").value.toString(),
                                         p0.child("phone").value.toString(),
@@ -73,6 +74,7 @@ class JobFragment : Fragment() {
 
                                 userAdapter = MaidAdapter(context!!, list)
                                 recyclerView!!.adapter = userAdapter
+
                             }
 
                             override fun onCancelled(p0: DatabaseError) {

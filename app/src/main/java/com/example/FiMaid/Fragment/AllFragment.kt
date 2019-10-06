@@ -62,18 +62,10 @@ class AllFragment : AppCompatActivity() {
         firebaseStorage = FirebaseStorage.getInstance()
         storageReference = firebaseStorage.reference
         FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
-            .child("name").addListenerForSingleValueEvent(object : ValueEventListener {
+            .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(p0: DataSnapshot) {
-                    tv_nama.text = p0.value.toString()
-                }
-
-                override fun onCancelled(p0: DatabaseError) {
-                }
-            })
-        FirebaseDatabase.getInstance().getReference("user/${fAuth.uid}")
-            .child("img").addListenerForSingleValueEvent(object : ValueEventListener {
-                override fun onDataChange(p0: DataSnapshot) {
-                    Glide.with(applicationContext).load(p0.value.toString())
+                    tv_nama.text = p0.child("name").value.toString()
+                    Glide.with(applicationContext).load(p0.child("img").value.toString())
                         .centerCrop()
                         .error(R.drawable.ic_launcher_background)
                         .into(ava2)
